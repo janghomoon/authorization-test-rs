@@ -1,1 +1,30 @@
-spring.application.name=authorization-test-rs
+spring:
+  application:
+    name: authorization-test-rs
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/oauth_dev
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+    jpa:
+      hibernate:
+        ddl-auto: update
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy # ????? ??
+      show-sql: true
+      format_sql: true
+
+server:
+  port: 8080
+
+
+app:
+  issuer: http://localhost:8080
